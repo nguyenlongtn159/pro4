@@ -1,0 +1,69 @@
+tags:
+    - !!models.Tag
+        id:     1
+        name:   Sinh viên
+ 
+    - !!models.Tag
+        id:     2
+        name:   Giảng viên
+ 
+    - !!models.Tag
+        id:     3
+        name:   Giáo vụ
+
+
+user_accounts:
+    - !!models.UserAccount
+        email:  sinhvien1@example.com
+        password: alice
+        chucvu:    1
+        name:    Truongnh
+
+    - !!models.UserAccount
+        email:  sinhvien2@example.com
+        password: alice
+        chucvu:    1
+        name: Tratn
+
+    - !!models.UserAccount
+        email:  sinhvien3@example.com
+        password: alice
+        chucvu:    1
+        name:    Hieunq
+
+    - !!models.UserAccount
+        email:  sinhvien4@example.com
+        password: alice
+        chucvu:    1
+        name:    Mylt
+
+    - !!models.UserAccount
+        email:  sinhvien5@example.com
+        password: alice
+        chucvu:    1
+        name:    Minhvq
+
+    - !!models.UserAccount
+        email:  giangvien1@example.com
+        password: alice
+        chucvu:    2
+        name:    Chiendm
+
+    - !!models.UserAccount
+        email:  giangvien2@example.com
+        password: alice
+        chucvu:    2
+        name:    LanAnhnt
+
+    - !!models.UserAccount
+        email:  giangvien3@example.com
+        password: alice
+        chucvu:    2
+        name:    Doba
+
+    - !!models.UserAccount
+        email:  giaovu1@example.com
+        password: alice
+        chucvu:    3
+        name:     Namlp
+

@@ -1,0 +1,43 @@
+@(userForm: Form[UserAccount],name: UserAccount)
+ 
+@import helper._
+@import helper.twitterBootstrap._
+ 
+@main("Thông tin") {
+  <h1>Infomations</h1>
+  @helper.form(CSRF(routes.Managers.save(name))) {
+      <input type="hidden" value="@userForm("id").valueOr("")" name="id"/>
+    <fieldset>
+       <legend>Tài khoản @userForm("name").valueOr("New")</legend>
+	   @helper.inputText(userForm("name"), '_label -> "TÊN")
+       @helper.inputText(userForm("email"), '_label -> "EMAIL")
+       @helper.inputText(userForm("password"), '_label -> "MẬT KHẨU")
+       @helper.textarea(userForm("description"), '_label -> "THÔNG TIN CHUNG")
+    </fieldset>
+	 	<div class="control-group">
+   <div class="controls">
+      <input name="dieukien" value="true" type="checkbox"
+             @if(userForm("dieukien").value == "true") { checked }
+                 > Đủ điều kiện
+	  <input name="dieukien" value="false" type="checkbox"
+             @if(userForm("dieukien").value == "false") { checked }
+                 > Chưa đủ điều kiện
+    </div>
+ </div>
+    	<div class="control-group">
+   <div class="controls">
+      <input name="tag.id" value="1" type="checkbox"
+             @if(userForm("tag.id").value == "1") { checked }
+                 > Sinh viên
+	  <input name="tag.id" value="2" type="checkbox"
+             @if(userForm("tag.id").value == "2") { checked }
+                 > Giảng viên
+      <input name="tag.id" value="3" type="checkbox"
+             @if(userForm("tag.id").value == "3") { checked }
+                 > Giáo vụ
+    </div>
+ </div>
+    <input type="submit" class="btn btn-primary" value="Save">
+    <a class="btn" href="@routes.Managers.details(name)">Cancel</a>
+  }
+}
