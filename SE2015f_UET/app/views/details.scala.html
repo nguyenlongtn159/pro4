@@ -15,24 +15,24 @@
        @helper.textarea(userForm("description"), '_label -> "THÔNG TIN CHUNG")
     </fieldset>
 	 	<div class="control-group">
-   <div class="controls">
-      <input name="dieukien" value="true" type="checkbox"
+   <div class="controls"><br> Các điều kiện về hồ sơ, kỷ luật,...:<br> 
+      <input name="dieukien" value="true" type="radio"
              @if(userForm("dieukien").value == "true") { checked }
-                 > Đủ điều kiện
-	  <input name="dieukien" value="false" type="checkbox"
+                 > Đủ điều kiện <br>
+	  <input name="dieukien" value="false" type="radio"
              @if(userForm("dieukien").value == "false") { checked }
-                 > Chưa đủ điều kiện
+                 checked> Chưa đủ điều kiện
     </div>
  </div>
     	<div class="control-group">
-   <div class="controls">
-      <input name="tag.id" value="1" type="checkbox"
+   <div class="controls">Loại tài khoản: <br>
+      <input name="tag.id" value="1" type="radio"
              @if(userForm("tag.id").value == "1") { checked }
-                 > Sinh viên
-	  <input name="tag.id" value="2" type="checkbox"
+                 checked> Sinh viên <br>
+	  <input name="tag.id" value="2" type="radio"
              @if(userForm("tag.id").value == "2") { checked }
-                 > Giảng viên
-      <input name="tag.id" value="3" type="checkbox"
+                 > Giảng viên <br>
+      <input name="tag.id" value="3" type="radio"
              @if(userForm("tag.id").value == "3") { checked }
                  > Giáo vụ
     </div>

@@ -2,7 +2,7 @@ package controllers;
 
 import static play.data.Form.form;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+//import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import models.UserAccount;
 import play.data.Form;
@@ -26,6 +26,9 @@ public class Application extends Controller {
 	public static Result login() {
 		return ok(views.html.login.render(form(Login.class)));
 	}
+	public static Result error() {
+		return ok(views.html.error.render());
+	}
 
 	public static Result authenticate() {
 		Form<Login> loginForm = form(Login.class).bindFromRequest();
@@ -35,8 +38,11 @@ public class Application extends Controller {
 		session().clear();
 		UserAccount user = UserAccount.authenticate(email, password);
 		if (user == null) {
-			flash("error", "Invalid email and/or password");
-			return redirect(routes.Application.login());
+			
+			return ok(views.html.error.render());
+			//flash("error", "Invalid email and/or password");
+			//return redirect(routes.Application.error());
+			//return forbidden("<html>Email hoặc password không hợp lệ <br> Vui lòng liên hệ với giáo vụ để được giúp đỡ <br> hoặc <a href='.../login'>đăng nhập lại</a>"); 
 		} else {
 			String tag = user.tag.name;
 			session("email", email);
