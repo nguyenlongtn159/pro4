@@ -26,6 +26,12 @@ public class Application extends Controller {
 	public static Result login() {
 		return ok(views.html.login.render(form(Login.class)));
 	}
+	public static Result logout() {
+		
+	    session().clear();
+		return ok(views.html.logout.render());
+	}
+	
 	public static Result error() {
 		return ok(views.html.error.render());
 	}

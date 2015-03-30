@@ -26,3 +26,4 @@ GET  /sinh_vien/:name/hoat_dong        controllers.Students.list(page: Integer?=
 GET  /sinh_vien/:name/giao_vien_huong_dan       controllers.Students.gv_list(page: Integer?=0,name: models.UserAccount,chuyenmon: Long?=0)
 GET  /sinh_vien/:name/bao_ve       controllers.Students.modelsList(name: models.UserAccount)
 GET  /sinh_vien/:name/:names       controllers.Students.show(name: models.UserAccount,names: models.UserAccount)
+GET /logout        controllers.Application.logout()
