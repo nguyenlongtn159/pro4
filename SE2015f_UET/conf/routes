@@ -27,3 +27,4 @@ GET  /sinh_vien/:name/giao_vien_huong_dan       controllers.Students.gv_list(pag
 GET  /sinh_vien/:name/bao_ve       controllers.Students.modelsList(name: models.UserAccount)
 GET  /sinh_vien/:name/:names       controllers.Students.show(name: models.UserAccount,names: models.UserAccount)
 GET /logout        controllers.Application.logout()
+DELETE  /Managers/:name  controllers.Managers.delete(name1: String, name: models.UserAccount)

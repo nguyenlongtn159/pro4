@@ -27,7 +27,21 @@
      <li class="disabled"><a>&rarr;</a></li>
    }
 </div>
-
+<script>
+      function del(urlToDelete) {
+	  var x = confirm("Bạn chắc chắn muốn xóa?");
+	  if(x){
+      $.ajax({
+      url: urlToDelete,
+      type: 'DELETE',
+      success: function(results) {
+      // Refresh the page
+      location.reload();
+      }
+      });
+	  } else return false;
+      }
+      </script>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -43,6 +57,9 @@
         <td><a href="@routes.Managers.show(chanvai,account)">@account.email</a></td>
         <td><a href="@routes.Managers.show(chanvai,account)">@account.password</a></td>
         <td><a href="@routes.Managers.show(chanvai,account)">@account.description</a></td>
+		<td><a onclick="del('@routes.Managers.delete(account.name, chanvai)')">
+            <span class="glyphicon glyphicon-trash"></span>
+          </a></td>
       </tr>
     }
     </tbody>

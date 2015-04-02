@@ -30,6 +30,10 @@ public class Managers extends Controller {
 		Page<UserAccount> hodle = UserAccount.find(page);
 		return ok(views.html.list.render(hodle, user));
 	}
+	/*public static Result list(Integer page, String user) {
+		Page<UserAccount> hodle = UserAccount.find(page);
+		return ok(views.html.list.render(hodle, user));
+	} */
 
 	public static Result reSearch() {
 		return ok();
@@ -113,5 +117,13 @@ public class Managers extends Controller {
 		}
 		return redirect(routes.Managers.newMessage(user));
 	}
+	public static Result delete(String name ,UserAccount user) {
+  final UserAccount user1 = UserAccount.findByName(name);
+  if(user1 == null) {
+    return notFound(String.format("User %s does not exists.", name));
+  }
+  user1.delete();
+  return redirect(routes.Managers.list(0, user));
+}
 
 }
