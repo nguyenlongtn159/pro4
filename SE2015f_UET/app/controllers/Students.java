@@ -72,6 +72,10 @@ public class Students extends Controller {
 		return ok(views.html.sv_detai_all.render(hodle, user));
 		// return TODO;
 	}
+	public static Result list2(Integer page, UserAccount user) {
+		Page<UserAccount> hodle = UserAccount.find(page);
+		return ok(views.html.svhiddenlist.render(hodle, user));
+	}
 
 	public static Result Dangky(UserAccount user, Detai mDetai) {
 		user.detai = mDetai;
@@ -102,5 +106,6 @@ public class Students extends Controller {
 		List<Message> msg = UserAccount.findmsg(name);
 		return ok();
 	}
+
 
 }
