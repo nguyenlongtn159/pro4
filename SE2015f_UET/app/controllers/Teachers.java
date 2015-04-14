@@ -48,7 +48,7 @@ public class Teachers extends Controller {
 		Form<UserAccount> boundForm = userForm.bindFromRequest();
 		if (boundForm.hasErrors()) {
 			flash("error", "Please correct the form below.");
-			return badRequest(views.html.details.render(boundForm, name));
+			return badRequest(views.html.gvshow.render(boundForm, name));
 
 		}
 		else{
@@ -57,6 +57,10 @@ public class Teachers extends Controller {
 
 			UserAccount modles = UserAccount.findById(account.id);
 			modles.name = account.name;
+			modles.date = account.date;
+			modles.sdt = account.sdt;
+			modles.chucdanh = account.chucdanh;
+			modles.noicongtac = account.noicongtac;
 			modles.description = account.description;
 			modles.update();
 		}

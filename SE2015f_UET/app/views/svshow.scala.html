@@ -10,7 +10,8 @@
       <input type="hidden" value="@userForm("name").valueOr("")" name="name"/>
     <fieldset>
        <legend>Tài khoản @userForm("name").valueOr("New")</legend>
-
+        @helper.inputText(userForm("date"), '_label -> "Date")
+        @helper.inputText(userForm("sdt"), '_label -> "SỐ ĐIỆN THOẠI")
        @helper.textarea(userForm("description"), '_label -> "THÔNG TIN CHUNG")
     </fieldset>
     <input type="submit" class="btn btn-primary" value="Save">

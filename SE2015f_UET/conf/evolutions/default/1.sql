@@ -37,6 +37,10 @@ create table user_account (
   chuyenmon_id              bigint,
   cmon                      bigint,
   duochuongdan_id           bigint,
+  date                      timestamp,
+  sdt                       integer,
+  chucdanh                  varchar(255),
+  noicongtac                varchar(255),
   constraint pk_user_account primary key (id))
 ;
 
@@ -54,36 +58,32 @@ create sequence tag_seq;
 
 create sequence user_account_seq;
 
-alter table user_account add constraint fk_user_account_tag_1 foreign key (tag_id) references tag (id) on delete restrict on update restrict;
+alter table user_account add constraint fk_user_account_tag_1 foreign key (tag_id) references tag (id);
 create index ix_user_account_tag_1 on user_account (tag_id);
-alter table user_account add constraint fk_user_account_detai_2 foreign key (detai_id) references detai (id) on delete restrict on update restrict;
+alter table user_account add constraint fk_user_account_detai_2 foreign key (detai_id) references detai (id);
 create index ix_user_account_detai_2 on user_account (detai_id);
-alter table user_account add constraint fk_user_account_chuyenmon_3 foreign key (chuyenmon_id) references detai (id) on delete restrict on update restrict;
+alter table user_account add constraint fk_user_account_chuyenmon_3 foreign key (chuyenmon_id) references detai (id);
 create index ix_user_account_chuyenmon_3 on user_account (chuyenmon_id);
-alter table user_account add constraint fk_user_account_duochuongdan_4 foreign key (duochuongdan_id) references user_account (id) on delete restrict on update restrict;
+alter table user_account add constraint fk_user_account_duochuongdan_4 foreign key (duochuongdan_id) references user_account (id);
 create index ix_user_account_duochuongdan_4 on user_account (duochuongdan_id);
 
 
 
-alter table user_account_message add constraint fk_user_account_message_user__01 foreign key (user_account_id) references user_account (id) on delete restrict on update restrict;
+alter table user_account_message add constraint fk_user_account_message_user__01 foreign key (user_account_id) references user_account (id);
 
-alter table user_account_message add constraint fk_user_account_message_messa_02 foreign key (message_id) references message (id) on delete restrict on update restrict;
+alter table user_account_message add constraint fk_user_account_message_messa_02 foreign key (message_id) references message (id);
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
+drop table if exists detai cascade;
 
-drop table if exists detai;
+drop table if exists message cascade;
 
-drop table if exists message;
+drop table if exists user_account_message cascade;
 
-drop table if exists user_account_message;
+drop table if exists tag cascade;
 
-drop table if exists tag;
-
-drop table if exists user_account;
-
-SET REFERENTIAL_INTEGRITY TRUE;
+drop table if exists user_account cascade;
 
 drop sequence if exists detai_seq;
 

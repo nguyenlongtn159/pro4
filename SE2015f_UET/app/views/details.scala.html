@@ -12,7 +12,11 @@
 	   @helper.inputText(userForm("name"), '_label -> "TÊN")
        @helper.inputText(userForm("email"), '_label -> "EMAIL")
        @helper.inputText(userForm("password"), '_label -> "MẬT KHẨU")
-       @helper.textarea(userForm("description"), '_label -> "THÔNG TIN CHUNG")
+        @helper.inputText(userForm("sdt"), '_label -> "SỐ ĐIỆN THOẠI")
+        @helper.inputText(userForm("chucdanh"), '_label -> "CHỨC DANH (TS, PGS, GS,...ThS.....)")
+        @helper.inputText(userForm("noicongtac"), '_label -> "NƠI CÔNG TÁC")
+        @helper.inputText(userForm("date"), '_label -> "BIRTHDAY")
+       @helper.textarea(userForm("description"), '_label -> "THÔNG TIN THÊM")
     </fieldset>
 	 	<div class="control-group">
    <div class="controls"><br> Các điều kiện về hồ sơ, kỷ luật,...:<br> 

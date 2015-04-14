@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import com.avaje.ebean.Page;
 
 import controllers.Application;
 
+import play.data.format.Formats;
 import play.mvc.PathBindable;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
@@ -45,6 +47,15 @@ public class UserAccount extends Model implements PathBindable<UserAccount> {
 	public List<UserAccount> huongdan = new ArrayList<UserAccount>();
 	@ManyToOne
 	public UserAccount duochuongdan;
+
+	//them-14-4
+	@Formats.DateTime(pattern = "dd/MM/yyyy")
+	public Date date;
+	//@Constraints.MaxLength(11)
+	public int sdt;
+
+	public String chucdanh;
+	public String noicongtac;
 
 	public UserAccount() {
 		super();

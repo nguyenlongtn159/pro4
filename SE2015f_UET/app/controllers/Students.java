@@ -34,17 +34,18 @@ public class Students extends Controller {
 		Form<UserAccount> boundForm = userForm.bindFromRequest();
 		if (boundForm.hasErrors()) {
 			flash("error", "Please correct the form below.");
-			return badRequest(views.html.details.render(boundForm, name));
+			return badRequest(views.html.svshow.render(boundForm, name));
 		}
-		UserAccount account = boundForm.get();
-		if (account.id == null) {
 
-		}
+
 		// account.save();
 		else {
+			UserAccount account = boundForm.get();
 			System.out.println("chan");
 			UserAccount model = UserAccount.findById(account.id);
 			model.name = account.name;
+			model.date = account.date;
+			model.sdt = account.sdt;
 			model.description = account.description;
 			model.update();
 		}
